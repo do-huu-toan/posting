@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/index.css">
+
+    <!-- Sidebar css -->
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/style5.css">
+
+    <!-- Font Awesome JS -->
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Trang đăng bài</h3>
+            </div>
+            <br />
+            <i>
+                <h5>Xin chào, <%=username %> !</h5>
+            </i>
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="/manager">Home</a>
+                </li>
+
+                <li>
+                    <a href="/user/manager">Quản lý user</a>
+                </li>
+
+                <li class="active">
+                    <a href="/post/manager">Bài viết</a>
+                </li>
+                <li >
+                    <a href="/post/create">Viết bài</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+                <li>
+                    <a href="/logout">Đăng xuất</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!--
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                        </ul>
+                        -->
+                    </div>
+                </div>
+            </nav>
+            <div class="container">
+                <h1>Đây là trang bài viết</h1>
+                <!-- Nút thêm bài viết -->
+                <div>
+                    <!--HIỂN THỊ TẤT CẢ BÀI VIẾT-->
+                    <div class="table-dht">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <h3>STT</h3>
+                                    </th>
+                                    <th scope="col">
+                                        <h3>Tittle</h3>
+                                    </th>
+                                    <th scope="col">
+                                        <h3>Người viết</h3>
+                                    </th>
+                                    <th scope="col">
+                                        <h3>Tùy chọn</h3>
+                                    </th>
+                                </tr>
+                            </thead>
+    
+    
+    
+                            <tbody>
+                                <!--EJS-->
+                                    <tr>
+                                        <% for(var i=0;i < posts.length; i++) { %>
+                                            <th scope="row">
+                                                <h5>
+                                                    <%= i+1 %>
+                                                </h5>
+                                            </th>
+                                            <td>
+                                                <%= posts[i].tittle %>
+                                            </td>
+                                            <td>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary">
+                                                    <a href="/post/search/<%=posts[i].id %>"><p class="btn-delete-label">Xem</p></a>
+                                                </button>
+
+                                                <button type="button" class="btn btn-secondary">
+                                                    <p class="btn-delete-label">Sửa</p>
+                                                </button>
+
+                                                <button type="button" class="btn btn-danger">
+                                                    <p class="btn-delete-label">Xóa</p>
+                                                </button>
+                                            </td>
+                                    </tr>
+                                    <%}%>
+                                            <!--END-->
+    
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--END HIEN THI TAT CA BAI VIET-->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
