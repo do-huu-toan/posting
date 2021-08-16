@@ -9,6 +9,9 @@ const helmet = require("helmet");
 const isProduction = process.env.NODE_ENV === 'production';
 const authMiddleware = require('./middleware/auth.middleware');
 
+
+const HomeController = require('./controller/home.controller');
+
 const init = false;
 
 //Database
@@ -66,9 +69,7 @@ app.get('/manager', authMiddleware.authenicate, async (req, res) => {
   });
 });
 
-app.get('/home', (req, res) => {
-  return res.render('home');
-})
+app.get('/home', HomeController.index);
 app.get('/post-test', (req, res) => {
   return res.render('post-test')
 })

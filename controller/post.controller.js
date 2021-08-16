@@ -12,6 +12,11 @@ const getAll = async (req, res, next) => {
     return result;
 }
 
+const getAllView = async (req, res, next) => {
+    const result = await Post.findAll();
+    return res.status(200).json(result);
+}
+
 const posting = async (req, res, next) => {
     const userIdOfPost = await AuthMiddleware.getIdByToken(req);
     var newPost = new Post({
@@ -52,9 +57,8 @@ const getPostById = async (req, res, next) => {
             post: postFound
         })
     }
-    else
-    {
-        return res.status(200).json({message: '404 Not Found'});
+    else {
+        return res.status(200).json({ message: '404 Not Found' });
     }
 }
 
@@ -86,6 +90,65 @@ const createView = async (req, res, next) => {
         username: username,
     })
 }
+
+const getPostApi = async (req, res, next) => {
+    const postId = req.params.id;
+    const postFound = await Post.findByPk(postId)
+
+    if (postFound) {
+        return res.status(200).json(postFound);
+    }
+    else {
+        return res.status(200).json({ message: '404 Not Found' });
+    }
+}
+
+const editPostById = (req, res, next) => {
+
+}
+
+const updateView = async (req, res, next) => {
+
+    const userId = await AuthMiddleware.getIdByToken(req);
+    const postId = req.params.id;
+    const postFound = await Post.findByPk(postId);
+
+
+
+
+    if (await checkRole.getRoleByToken(req) == "admin" || userId == postFound.userId) //Nếu role admin hoặc là người tạo ra bài viết thì có quyền update
+    {
+        const result = await postFound.update({
+            tittle: req.body.tittle,
+            summary: req.body.summary,
+            content: req.body.content
+        })
+        await index(req, res, next);
+    }
+    else {
+        return res.json({
+            userId: userId,
+            userIdOfPost: postFound.userId
+        });
+    }
+}
+
+const removePostView = async (req, res, next) => {
+    const userId = await AuthMiddleware.getIdByToken(req);
+    const postId = req.params.id;
+    const postFound = await Post.findByPk(postId);
+
+    if (await checkRole.getRoleByToken(req) == "admin" || userId == postFound.userId) //Nếu role admin hoặc là người tạo ra bài viết thì có quyền update
+    {
+        try {
+            const result = await postFound.destroy();
+            await index(req, res, next);
+        } catch (error) {
+            return res.status(501).json(error)
+        }        
+    }
+}
+
 module.exports = {
     create,
     getAll,
@@ -94,7 +157,12 @@ module.exports = {
     index,
     createView,
     posting,
-    getPostById
+    getPostById,
+    getAllView,
+    getPostApi,
+    editPostById,
+    updateView,
+    removePostView
 }
 
 

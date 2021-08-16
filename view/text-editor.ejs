@@ -8,7 +8,7 @@
   </head>
   <body>
     <div>
-      <form action="/post/create" method="POST">
+      <form action="/post/create" method="POST" id="form">
         <div class="form-group">
           <label for="tittle">Tiêu đề bài viết: </label>
           <input type="text" class="form-control" id="tittle" placeholder="Nhập tiêu đề bài viết..." name="tittle">
@@ -19,7 +19,7 @@
           <input type="text" class="form-control" id="summary" placeholder="Nội dung tóm tắt..." name="summary">
         </div>
 
-        <textarea id="summernote" name="content"></textarea>
+        <textarea id="summernote" class="content" name="content"></textarea>
         <button type="submit" class="btn btn-primary">Đăng</button>
       </form>
     </div>
@@ -35,7 +35,7 @@
           ['para', ['ul', 'ol', 'paragraph']],
           ['table', ['table']],
           ['insert', ['link', 'picture', 'video']],
-          ['view', ['fullscreen', 'codeview', 'help']]
+          ['view', ['codeview', 'help']]
         ]
       });
     </script>

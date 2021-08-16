@@ -12,6 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/post-create.css">
 
     <!-- Sidebar css -->
     <!-- Bootstrap CSS CDN -->
@@ -21,63 +22,65 @@
     <link rel="stylesheet" href="/style5.css">
 
     <!-- Font Awesome JS -->
-    
+
 
 </head>
 
 <body>
     <div class="wrapper">
         <!-- Sidebar Holder -->
-            <nav id="sidebar">
-                <div class="sidebar-header">
-                    <h3>Trang đăng bài</h3>
-                </div>
-                <br/>
-                <i><h5>Xin chào, <%=username %> !</h5></i>
-                <ul class="list-unstyled components">
-                    <li>
-                        <a href="/manager">Home</a>
-                    </li>
-                    <li>
-                        <a href="/user/manager">Quản lý user</a>
-                    </li>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Trang đăng bài</h3>
+            </div>
+            <br />
+            <i>
+                <h5>Xin chào, <%=username %> !</h5>
+            </i>
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="/manager">Home</a>
+                </li>
+                <li>
+                    <a href="/user/manager">Quản lý user</a>
+                </li>
 
-                    <li>
-                        <a href="/post/manager">Bài viết</a>
-                    </li>
-                    <li class="active" >
-                        <a href="/post/create">Viết bài</a>
-                    </li>
+                <li>
+                    <a href="/post/manager">Bài viết</a>
+                </li>
+                <li class="active">
+                    <a href="/post/create">Viết bài</a>
+                </li>
 
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                    <li>
-                        <a href="/logout">Đăng xuất</a>
-                    </li>
-                </ul>
-            </nav>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+                <li>
+                    <a href="/logout">Đăng xuất</a>
+                </li>
+            </ul>
+        </nav>
 
-            <!-- Page Content Holder -->
-            <div id="content">
+        <!-- Page Content Holder -->
+        <div id="content">
 
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
 
-                        <button type="button" id="sidebarCollapse" class="navbar-btn">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </button>
-                        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button"
-                            data-toggle="collapse" data-target="#navbarSupportedContent"
-                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <i class="fas fa-align-justify"></i>
-                        </button>
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
 
 
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <!--
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!--
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
                                 <a class="nav-link" href="#">Page</a>
@@ -93,18 +96,43 @@
                             </li>
                         </ul>
                         -->
-                        </div>
                     </div>
-                </nav>
-        <div class="container">
-            <h1>Đây là trang viết bài</h1>
-           
+                </div>
+            </nav>
+            <div class="container">
+                <h1>Đây là trang viết bài</h1>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                    Viết bài mới
+                </button>
+
+            </div>
+
         </div>
 
     </div>
-    
+
     </div>
-    <%- include('text-editor.ejs') %>
+
+    <div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Viết bài mới</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <%- include('text-editor.ejs') %>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -127,6 +155,10 @@
             });
         });
     </script>
+    <script type="text/javascript">
+        console.log($('#myModal'));
+    </script>
+
 </body>
 
 </html>
