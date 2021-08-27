@@ -1,0 +1,27 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 45.5px;
+    box-shadow: 0px 3px 6px rgb(0 0 0 / 16%);
+
+}
+
+.language{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    margin-bottom: 30px;
+}
+.language-item{
+    margin: 10px;
+}
+.categorie{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    padding-bottom: 23px;
+}
