@@ -50,6 +50,9 @@ app.use('/role', RoleRoute);
 app.use('/user', authMiddleware.authenicate, UserRoute);
 app.use('/post', PostRoute);
 
+app.get('/', (req, res, next) => {
+  return res.redirect('/home');
+})
 
 app.get('/login', authMiddleware.authenicateLogin,(req, res) => {
   res.render('login');
@@ -74,6 +77,9 @@ app.get('/post-test', (req, res) => {
   return res.render('post-test')
 })
 
+app.use((req, res, next)=>{
+  return res.render('not-found');
+})
 
 app.listen(port, () => {
   console.log(`Running on port: ${port}...`)

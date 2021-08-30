@@ -1,0 +1,58 @@
+.notfound .notfound-404 {
+    position: relative;
+    height: 150px;
+    line-height: 150px;
+    margin-bottom: 25px;
+}
+
+.notfound .notfound-404 h1 {
+    font-family: titillium web,sans-serif;
+    font-size: 186px;
+    font-weight: 900;
+    margin: 0;
+    text-transform: uppercase;
+    background-size: cover;
+    background-position: center;
+}
+
+body {
+    text-align: center;
+}
+
+.notfound {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.notfound h2 {
+    padding: 50px;
+    font-family: titillium web,sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.notfound p {
+    font-family: montserrat,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+
+.notfound a {
+    font-family: titillium web,sans-serif;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    background: #5c91fe;
+    padding: 10px 40px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 1px;
+    margin-top: 15px;
+    -webkit-transition: .2s all;
+    transition: .2s all;
+}
