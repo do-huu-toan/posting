@@ -56,3 +56,7 @@ body {
     -webkit-transition: .2s all;
     transition: .2s all;
 }
+
+html{
+    border: 13px solid #6B47A0
+}
