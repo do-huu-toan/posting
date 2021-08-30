@@ -13,9 +13,13 @@
     <link rel="stylesheet" href="/page.css">
 </head>
 <body>
+    <%- include('header.ejs') %>
+    
     <div class="container page-content">
         <h1 class="tittle"><%=post.tittle%></h1>
         <%- post.content %> 
     </div>
+
+    <%- include('footer.ejs') %>
 </body>
 </html>

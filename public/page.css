@@ -6,8 +6,13 @@
 }
 
 .page-content{
+    margin-top: 50px;
     background-color: white;
 }
 body{
     background-color: #f0f1f5;
+}
+
+html{
+    border: 13px solid #6B47A0
 }
